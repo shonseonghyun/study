@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cartt">
+		
+		<select id="viewAll" resultType="sql.Cart">
+		  SELECT * FROM CARTT
+		</select>
+		
+		<insert id="insert">
+			INSERT INTO CARTT(PRODUCT_ID,ID,AMOUNT)
+			VALUES
+			(#{product_id},#{id},#{amount})
+		</insert>
+		
+		<select id="detail" resultType="sql.Cart">
+			SELECT * FROM CARTT WHERE ID=#{id}
+		</select>
+		<update id="update">
+			UPDATE CARTT SET AMOUNT=#{amount} WHERE ID=#{id}
+		</update>
+		
+		<select id="check" resultType="int">
+			select count(id) from cartt where id=#{id} and product_id=#{product_id}
+		</select>
+		
+		<delete id="delete">
+			delete cartt where id=#{id}
+		</delete>
+		
+</mapper>

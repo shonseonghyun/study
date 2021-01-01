@@ -1,11 +1,10 @@
-package model.shop.dao;
+package model.shop.service.product;
 
 import java.util.List;
 
-import model.shop.dto.ProductDTO;
+import model.shop.dto.product.ProductDTO;
 
-public interface ProductDAO {
-	
+public interface ProductSerivce {
 	List<ProductDTO> listProduct(); //상품 목록
 	ProductDTO detailProduct(int product_id); //상품 상세 정보
 	void updateProduct(ProductDTO product); //상품 정보 수정

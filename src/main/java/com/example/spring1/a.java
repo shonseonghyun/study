@@ -1,20 +1,34 @@
 package com.example.spring1;
 
-import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class a {
-
 	public static void main(String[] args) {
-
-		File file= new File("C:\\Users\\comon\\Desktop\\upload");
-		if(file.exists()) {
+		String[] genre={"classic","pop", "classic", "classic", "pop"};
+		int[] plays= {500, 600, 150, 800, 2500};
 		
-			System.out.println("존재");
+		Map<String, Integer> map=new HashMap<>();
+		for(int i=0;i<genre.length;i++) {
+			map.put(genre[i], map.getOrDefault(genre[i], 0)+plays[i]);
 		}
-		else {
-			file.mkdir();
-			System.out.println("존재 x");
+	
+		for(String g:map.keySet()) {
+			List<Integer> number=new ArrayList<Integer>();
+			for(int i=0;i<genre.length;i++) {
+				if(genre[i].equals(g)) {
+					number.add(i);
+				}
+			}
+			
+			for(int n : number) {
+				System.out.print(g+":"+n+",");
+			}
 		}
 	}
-
+		
+		
+	
 }

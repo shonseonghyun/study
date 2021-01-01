@@ -1,13 +1,19 @@
-package model.shop.dao;
+package model.shop.dao.product;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.shop.dto.ProductDTO;
+import model.shop.dto.product.ProductDTO;
 
+//Äõ¸®½ÇÇà
 @Repository
 public class ProductDAOImpl implements ProductDAO {
+	
+	@Autowired
+	SqlSession sqlSession;
 	
 	@Override
 	public List<ProductDTO> listProduct() {
@@ -35,8 +41,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public void insertProduct(ProductDTO product) {
-		// TODO Auto-generated method stub
-
+		sqlSession.insert("product.insert", product);
 	}
 
 	@Override

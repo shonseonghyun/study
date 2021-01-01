@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="pfmember">
+		<select id="logincheck" resultType="String">
+			select name from pfmember where id=#{id} and pwd=#{pwd}
+		</select>
+		
+		<select id="idcheck" resultType="int">
+			select count(id) from pfmember where id=#{id}
+		</select>
+		
+		<insert id="sign">
+			insert into pfmember(name,id,pwd,email) values(#{name},#{id},#{pwd},#{email})
+		</insert>
+</mapper>

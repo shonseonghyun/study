@@ -24,6 +24,7 @@ public class MainController {
 		return "main";
 	}
 	
+	
 /*天天天天天天天天天天天天天天天RequestParam天天天天天天天天天天天天天天天天天天天天天天天	*/	
 	
 	//掘掘欽
@@ -123,5 +124,22 @@ public class MainController {
 		model.addAttribute("result",result);
 		return "test/ajaxgugu_result";
 	}
+	
+	@RequestMapping("/l")
+	public String l() {
+		return "login";
+	}
+	
+	@RequestMapping("/a")
+	public ModelAndView a(@RequestParam String i) {
+		ModelAndView mav= new ModelAndView();
+		mav.addObject("i", i);
+		mav.setViewName("a");
+		
+		return mav;
+	}
+	
+	
+	
 	
 }

@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.item-wrapper{
+    width: 700px;
+    margin: 0 auto; /* 留덉쭊 �굹�닠媛뽮린 */
+
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+figure{
+    display: inline-block; /* 蹂몄씤�쓽 width,height媛뽮린 */
+    margin: 0 20px 20px 0 ;
+    position: relative ; /* �굹以묒뿉 ���씠�� �옄由� */
+    width: 300px; /* �씠 �궗�씠利� �븞�뿉�꽌 �씠誘몄�而ㅼ죰�떎�옉�븘議뗫떎 */
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* figure:nth-child(2n+0){margin-right: 0;} */
+
+img{
+    display: block; /* �옄由� 遺�議깊븯硫� 諛묒쑝濡� �궡�젮媛�寃뚰븯�젮怨� �씠遺�遺꾨떎�떆�빐蹂닿린*/
+    width: 100%;
+    transform: scale(1);
+    transition: all .3s linear; /* �굹以� �씠誘몄�踰붿쐞�븞�뿉�꽌 而ㅼ�寃뚰븯湲� */
+}
+
+figcaption{
+    position: absolute; 
+    z-index: 2;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+}
+
+figcaption::before{
+    position: absolute;
+    content: "";
+    background-color: rgba(0,0,0,0.7);
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    opacity: 0;
+}
+
+figcaption p,
+figcaption h2{
+    opacity: 0;
+    position: relative;
+    z-index: 4;
+    transform: translateY(110px);
+    transition: transform 0.5s linear;
+}
+
+
+figure:hover figcaption::before {opacity: 1;}
+figure:hover p,
+figure:hover h2{
+    transform: translateY(0);
+    opacity: 1;
+
+}
+
+figure:hover img{
+    transform: scale(1.2);
+}
+
+
+			/* header */
+.header-div{
+	text-align:right;
+	margin:10px 10px;
+	
+}
+
+.no-decoration{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+				/* body */
+body{
+	background-color: rgba(0,0,0,0.1);
+}
