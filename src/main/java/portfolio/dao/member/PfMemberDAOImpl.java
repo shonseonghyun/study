@@ -1,4 +1,4 @@
-package portfolio.dao;
+package portfolio.dao.member;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;

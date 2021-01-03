@@ -1,4 +1,4 @@
-package portfolio.dao;
+package portfolio.dao.member;
 
 import portfolio.dto.member.MemberDTO;
 

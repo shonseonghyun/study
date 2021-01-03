@@ -5,7 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import portfolio.dao.PfMemberDAO;
+import portfolio.dao.member.PfMemberDAO;
 import portfolio.dto.member.MemberDTO;
 
 @Service
