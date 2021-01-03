@@ -1,11 +1,12 @@
 *{
     margin: 0;
     padding: 0;
+	font-family: 'Gaegu', cursive;
 }
 
 .item-wrapper{
     width: 700px;
-    margin: 0 auto; /* 留덉쭊 �굹�닠媛뽮린 */
+    margin: 0 auto; /* 筌띾뜆彛� 占쎄돌占쎈떊揶쏅쉰由� */
 
     position: absolute;
     top:50%;
@@ -14,10 +15,10 @@
 }
 
 figure{
-    display: inline-block; /* 蹂몄씤�쓽 width,height媛뽮린 */
+    display: inline-block; /* 癰귣챷�뵥占쎌벥 width,height揶쏅쉰由� */
     margin: 0 20px 20px 0 ;
-    position: relative ; /* �굹以묒뿉 ���씠�� �옄由� */
-    width: 300px; /* �씠 �궗�씠利� �븞�뿉�꽌 �씠誘몄�而ㅼ죰�떎�옉�븘議뗫떎 */
+    position: relative ; /* 占쎄돌餓λ쵐肉� 占쏙옙占쎌뵠占쏙옙 占쎌쁽�뵳占� */
+    width: 300px; /* 占쎌뵠 占쎄텢占쎌뵠筌앾옙 占쎈툧占쎈퓠占쎄퐣 占쎌뵠沃섎챷占썼�뚣끉二곤옙�뼄占쎌삂占쎈툡鈺곕뿫�뼄 */
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
@@ -26,10 +27,10 @@ figure{
 /* figure:nth-child(2n+0){margin-right: 0;} */
 
 img{
-    display: block; /* �옄由� 遺�議깊븯硫� 諛묒쑝濡� �궡�젮媛�寃뚰븯�젮怨� �씠遺�遺꾨떎�떆�빐蹂닿린*/
+    display: block; /* 占쎌쁽�뵳占� �겫占썼�곌퉲釉�筌롳옙 獄쏅쵐�몵嚥∽옙 占쎄땀占쎌젻揶쏉옙野껊슦釉�占쎌젻�⑨옙 占쎌뵠�겫占썽겫袁⑤뼄占쎈뻻占쎈퉸癰귣떯由�*/
     width: 100%;
     transform: scale(1);
-    transition: all .3s linear; /* �굹以� �씠誘몄�踰붿쐞�븞�뿉�꽌 而ㅼ�寃뚰븯湲� */
+    transition: all .3s linear; /* 占쎄돌餓ο옙 占쎌뵠沃섎챷占썼린遺우맄占쎈툧占쎈퓠占쎄퐣 �뚣끉占썲칰�슦釉�疫뀐옙 */
 }
 
 figcaption{
