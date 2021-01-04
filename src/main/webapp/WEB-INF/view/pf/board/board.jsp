@@ -9,6 +9,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
 <title>게시판</title>
+<script type="text/javascript">
+	function check(){
+			 if(${empty sessionScope.id}){
+				alert("로그인이 필요합니다");
+			 }	
+			 else{
+				location.href="/pf/board/write"
+			}	
+	}
+</script>
+
 </head>
 <body>
 	<!--  header -->
@@ -26,6 +37,17 @@
 	</header>
 	<!--  header -->
 	
+	<div class="search-div">
+		<form>
+			<select name="f">
+				<option value="title">제목</option>
+				<option value="writer_id">작성자</option>
+			</select>
+			<input name="q" type="text" value="">
+			<input type="submit" value="검색">
+		</form>
+	</div>
+	
 	<table class="notice-table" >
 		<tr class="table-head">
 			<td class="table-id">id</td>
@@ -36,20 +58,27 @@
 			<td class="table-hit">조회수</td>
 		</tr>
 		<c:forEach var="b" items="${list}">
+		
 		<tr>
 			<td>${b.id}</td>
 			<td class="title">
-				<a  href="ss">${b.title }</a>
+				<a  href="/pf/board/detail?id=${b.id}">${b.title }</a>
 			</td>
 			<td>${b.writer_id }</td>
 			<td>${b.regdate }</td>
 			<td>${b.hit }</td>
 		</tr>
 		</c:forEach>
-		
 	</table>
 	
-	<a href="notice/write">
+	<div>
+		<c:forEach  var="page" begin="${5*p.start-4}" end="${5*p.start }">
+			<c:if test="${page < p.end or page == p.end }">
+				<a href="board?page=${page }">${page}</a>
+			</c:if>
+		</c:forEach>
+	</div>
+	<a style="cursor: pointer;" class="icon">
 		<i id="write-icon" class="fas fa-edit"></i>
 	</a>
 	
@@ -58,5 +87,6 @@
 	
 </body>
 <script src="/pf/js/logout.js" ></script>
+<script src="/pf/js/board.js" ></script>
 <script src="https://kit.fontawesome.com/505ea0ee8f.js" crossorigin="anonymous"></script>
 </html>

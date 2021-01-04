@@ -5,5 +5,8 @@ import java.util.List;
 import portfolio.dto.board.BoardDTO;
 
 public interface PfBoardDAO {
-	List<BoardDTO> getAllboard();
+	List<BoardDTO> getAllboard(int page,String f,String p);
+	void WriteBoard(BoardDTO board);
+	BoardDTO getboard(int id);
+	int countboard(String f,String q);
 }

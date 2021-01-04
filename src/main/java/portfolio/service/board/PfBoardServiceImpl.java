@@ -15,8 +15,23 @@ public class PfBoardServiceImpl  implements PfBoardService{
 	PfBoardDAO pfboarddao;
 	
 	@Override
-	public List<BoardDTO> getAllboard() {
-		return pfboarddao.getAllboard();
+	public List<BoardDTO> getAllboard(int page,String f,String q) {
+		return pfboarddao.getAllboard(page,f,q);
 	}
 
+	@Override
+	public void WriteBoard(BoardDTO board) {
+		pfboarddao.WriteBoard(board);
+	}
+
+	@Override
+	public BoardDTO getboard(int id) {
+		return pfboarddao.getboard(id);
+	}
+
+	@Override
+	public int countboard(String f,String q) {
+		return pfboarddao.countboard(f,q);
+	}
+	
 }

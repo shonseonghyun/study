@@ -4,19 +4,21 @@ import java.sql.Date;
 
 public class BoardDTO {
 	private int id;
+	private String name;
 	private String title;
 	private String writer_id;
 	private String content;
 	private Date regdate;
+	private int hit;
+	private String files;
+	private int pub;
+	
 	public Date getRegdate() {
 		return regdate;
 	}
 	public void setRegdate(Date date) {
 		this.regdate = date;
 	}
-	private int hit;
-	private String files;
-	private int pub;
 	public int getId() {
 		return id;
 	}
@@ -53,6 +55,12 @@ public class BoardDTO {
 	public void setFiles(String files) {
 		this.files = files;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getPub() {
 		return pub;
 	}
@@ -61,10 +69,9 @@ public class BoardDTO {
 	}
 	@Override
 	public String toString() {
-		return "BoardDTO [id=" + id + ", title=" + title + ", writer_id=" + writer_id + ", content=" + content
-				+ ", regdate=" + regdate + ", hit=" + hit + ", files=" + files + ", pub=" + pub + "]";
+		return "BoardDTO [id=" + id + ", name=" + name + ", title=" + title + ", writer_id=" + writer_id + ", content="
+				+ content + ", regdate=" + regdate + ", hit=" + hit + ", files=" + files + ", pub=" + pub + "]";
 	}
-	
 	
 	
 	
