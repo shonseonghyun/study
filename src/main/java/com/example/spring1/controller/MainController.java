@@ -135,11 +135,7 @@ public class MainController {
 		ModelAndView mav= new ModelAndView();
 		mav.addObject("i", i);
 		mav.setViewName("a");
-		
 		return mav;
 	}
-	
-	
-	
 	
 }
