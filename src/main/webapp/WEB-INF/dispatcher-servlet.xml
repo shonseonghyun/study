@@ -3,12 +3,16 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tx="http://www.springframework.org/schema/tx"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
     	http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
         https://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+
         http://mybatis.org/schema/mybatis-spring
         http://mybatis.org/schema/mybatis-spring.xsd">
 
@@ -45,12 +49,16 @@
 	  <property value="classpath:/mybatis-config.xml" name="configLocation" />
 	  <property value="classpath:mapper/**/*Mapper.xml" name="mapperLocations" />
 	</bean>
+	
 	<!-- sqlsession 객체 생선  -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="SqlSessionFactory" />
 	</bean>
 	
-	
-
+	<!-- transaction -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	  	  <property name="dataSource" ref="datasource" />
+	</bean>
+	<tx:annotation-driven/>
 	
 </beans>

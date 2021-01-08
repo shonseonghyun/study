@@ -9,4 +9,5 @@ public interface PfBoardDAO {
 	void WriteBoard(BoardDTO board);
 	BoardDTO getboard(int id);
 	int countboard(String f,String q);
+	void addHit(int id);
 }

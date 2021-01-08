@@ -54,6 +54,7 @@ public class LogController {
 	@RequestMapping(value="sign",method = RequestMethod.POST)
 	public String pfsignuppost(@ModelAttribute MemberDTO member) {
 		memberservice.sign(member);
+		System.out.println(member);
 		return "redirect:/pf/login";
 	}
 	

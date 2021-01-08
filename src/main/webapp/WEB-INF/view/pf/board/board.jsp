@@ -72,11 +72,26 @@
 	</table>
 	
 	<div>
+		<c:if test="${p.prev < 0}"> 
+			<a style="cursor: pointer;" onclick="alert('첫페이지입니다')">◀</a>
+		</c:if>
+		<c:if test="${p.prev >= 0 }">
+			<a href="board?page=${p.prev}">◀</a>
+		</c:if>
+		
 		<c:forEach  var="page" begin="${5*p.start-4}" end="${5*p.start }">
-			<c:if test="${page < p.end or page == p.end }">
+			<c:if test="${page < p.	end or page == p.end }">
 				<a href="board?page=${page }">${page}</a>
 			</c:if>
 		</c:forEach>
+		
+		<c:if test="${p.next < p.end}"> 
+			<a href="board?page=${p.next}">▶</a>
+		</c:if>
+		<c:if test="${p.next >= p.end}"> 
+			<a style="cursor: pointer;" onclick="alert('마지막 페이지입니다')">▶</a>
+		</c:if>
+		
 	</div>
 	<a style="cursor: pointer;" class="icon">
 		<i id="write-icon" class="fas fa-edit"></i>

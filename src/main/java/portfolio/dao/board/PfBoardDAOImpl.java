@@ -43,4 +43,9 @@ public class PfBoardDAOImpl implements PfBoardDAO {
 		return sqlSession.selectOne("pfboard.countboard",map);
 	}
 
+	@Override
+	public void addHit(int id) {
+		sqlSession.selectOne("pfboard.addHit", id);
+	}
+
 }

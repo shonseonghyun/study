@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import portfolio.dao.board.PfBoardDAO;
 import portfolio.dto.board.BoardDTO;
@@ -25,7 +26,9 @@ public class PfBoardServiceImpl  implements PfBoardService{
 	}
 
 	@Override
+	@Transactional
 	public BoardDTO getboard(int id) {
+		pfboarddao.addHit(id);
 		return pfboarddao.getboard(id);
 	}
 

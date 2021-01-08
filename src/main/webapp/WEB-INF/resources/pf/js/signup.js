@@ -1,3 +1,5 @@
+
+
 function checkpw(){
 		var id=document.loginform.id;
 		var name=document.loginform.name;
@@ -36,7 +38,7 @@ function checkpw(){
 
 		document.loginform.action="sign";
 		document.loginform.submit();
-		alert("회원가입이 완료되었습니다.");
+		//시간 지연 필요하다..
+		alert("회원 가입되었습니다");
 		self.close();
 }
-

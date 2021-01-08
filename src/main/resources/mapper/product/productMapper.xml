@@ -3,7 +3,7 @@
 <mapper namespace="product">
 	
 	<insert id="insert">
-		insert into product(product_name,price,description,picture_url) values(#{product_name},#{price},#{description},#{url})
+		insert into product(product_name,price,description,picture_url) values(#{product_name},#{price},#{description},#{picture_url})
 	</insert>
 
 		

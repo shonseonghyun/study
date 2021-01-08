@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="pfboard">
+
 	<select id="getAllboard"  parameterType="java.util.HashMap" resultType="portfolio.dto.board.BoardDTO">
 		SELECT T.* FROM 
 		( SELECT S.* , ROW_NUMBER() OVER(ORDER BY id DESC) as rnum FROM pfnotice S WHERE #{f} LIKE CONCAT('%' || #{q}, '%')) T 
@@ -8,7 +9,8 @@
 	</select>
 	
 	<insert id="writeboard">
-		insert into pfnotice(title,writer_id,content) values(#{title},#{writer_id},#{content})
+		insert into pfnotice(title,writer_id,content,files)
+		 values(#{title},#{writer_id},#{content},#{files})
 	</insert>
 	
 	<select id="getboard" resultType="portfolio.dto.board.BoardDTO">
@@ -18,4 +20,9 @@
 	<select id="countboard"  parameterType="java.util.HashMap" resultType="int">
 		select count(id) from pfnotice  WHERE #{f}  like CONCAT('%'||#{q},'%')
 	</select>
+	
+	<update id="addHit">
+		UPDATE PFNOTICE SET HIT=HIT+1 WHERE ID=#{id}
+	</update>
+	
 </mapper>
