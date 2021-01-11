@@ -36,5 +36,10 @@ public class PfBoardServiceImpl  implements PfBoardService{
 	public int countboard(String f,String q) {
 		return pfboarddao.countboard(f,q);
 	}
+
+	@Override
+	public void deleteboard(int id) {
+		pfboarddao.deleteboard(id);
+	}
 	
 }

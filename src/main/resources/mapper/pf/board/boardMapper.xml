@@ -25,4 +25,8 @@
 		UPDATE PFNOTICE SET HIT=HIT+1 WHERE ID=#{id}
 	</update>
 	
+	<delete id="deleteboard">
+		DELETE PFNOTICE WHERE ID=${id}
+	</delete>
+	
 </mapper>

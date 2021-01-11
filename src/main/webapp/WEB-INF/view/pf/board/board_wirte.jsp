@@ -9,8 +9,20 @@
  <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="/pf/css/board-write.css">
 <title>게시판 작성</title>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	$(document).on('click','.listbtn',function(e){
+		e.preventDefault();
+		location.href="/pf/board";
+		})
+		
+	$(document).on('click','.writebtn',function(e){
+		e.preventDefault();
+		$("#frm").submit();
+		})
+</script>
 </head>
-<body onload="check()">
+<body>
 	<!--  header -->
 	<header>
 		<div class="header-div">
@@ -26,7 +38,7 @@
     </header>
     <!--  header -->
 
-    <form method="post" action="write" enctype="multipart/form-data">
+    <form id="frm" method="post" action="write"  enctype="multipart/form-data">
         <table border="1"> 
             <tr>
                 <td class="title-td">제목</td>
@@ -44,8 +56,10 @@
             </tr>
 
             <tr>
-                <td><a href="/pf/board"><button>목록</button></a></td>
-                <td><input class="writebtn" type="submit" value="작성"></td>
+                <td><button type="button" class="listbtn">목록</button></td>
+                <td>
+                	<input  type="button" class="writebtn" value="작성">
+                </td>
             </tr>
         </table>
     </form>
@@ -54,5 +68,4 @@
 </body>
 <script src="https://kit.fontawesome.com/505ea0ee8f.js" crossorigin="anonymous"></script>
 <script src="/pf/js/logout.js" ></script>
-
 </html>

@@ -138,4 +138,8 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping("ll")
+	public String ll() {
+		return "test/ll";
+	}
 }

@@ -9,4 +9,6 @@ public interface PfBoardService {
 	void WriteBoard(BoardDTO board);
 	BoardDTO getboard(int id);
 	int countboard(String f,String q);
+	//ªË¡¶
+	void deleteboard(int id);
 }
