@@ -4,7 +4,7 @@
 
 	<select id="getAllboard"  parameterType="java.util.HashMap" resultType="portfolio.dto.board.BoardDTO">
 		SELECT T.* FROM 
-		( SELECT S.* , ROW_NUMBER() OVER(ORDER BY id DESC) as rnum FROM pfnotice S WHERE #{f} LIKE CONCAT('%' || #{q}, '%')) T 
+		( SELECT S.* , ROW_NUMBER() OVER(ORDER BY id DESC) as rnum FROM pfnotice S WHERE #{f} LIKE '%' || #{q} || '%') T 
 		WHERE rnum BETWEEN 5*#{page}-4 AND #{page}*5
 	</select>
 	
@@ -18,7 +18,7 @@
 	</select>
 	
 	<select id="countboard"  parameterType="java.util.HashMap" resultType="int">
-		select count(id) from pfnotice  WHERE #{f}  like CONCAT('%'||#{q},'%')
+		select count(id) from pfnotice  WHERE #{f}  like '%' || #{q} || '%'
 	</select>
 	
 	<update id="addHit">

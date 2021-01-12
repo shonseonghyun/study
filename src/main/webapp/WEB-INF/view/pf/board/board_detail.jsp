@@ -62,7 +62,7 @@
             <tr>
               <td colspan="4">
               	<a class="btn" href="/pf/board">목록</a>
-              	 <c:if test="${sessionScope.id ==  detail.writer_id }">
+              	 <c:if test="${(sessionScope.id ==  detail.writer_id) || (sessionScope.id =='admin') }">
 	              	<button id="modiftBtn" type="button">수정</button>
 	              	<button id="delBtn" type="button">삭제</button>
     			 </c:if>

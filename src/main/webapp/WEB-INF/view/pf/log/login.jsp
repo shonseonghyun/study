@@ -37,6 +37,9 @@
                 <label for="pw">비밀번호</label>
             </div>
             <div class="bt-area">
+            	<div class="autologin-div">
+	                <input type="checkbox" name="autologin" value="true" checked="checked">자동로그인
+            	</div>
                 <input type="submit" value="로그인">
             </div>
             <div class="bt-area">

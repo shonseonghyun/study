@@ -96,3 +96,7 @@ a{
     animation:zizin 0.5s ease-in ;
     animation-iteration-count: 2;
 }
+
+.autologin-div{
+	margin-bottom: 10px;
+}

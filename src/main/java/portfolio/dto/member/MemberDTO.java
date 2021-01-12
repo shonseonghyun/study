@@ -9,7 +9,16 @@ public class MemberDTO {
 	private String name;
 	private Date date ;
 	private String phone;
+	private String autologin;
 	
+	
+	
+	public String getAutologin() {
+		return autologin;
+	}
+	public void setAutologin(String autologin) {
+		this.autologin = autologin;
+	}
 	public String getId() {
 		return id;
 	}
@@ -40,11 +49,6 @@ public class MemberDTO {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	@Override
-	public String toString() {
-		return "MemberDTO [id=" + id + ", pwd=" + pwd + ", email=" + email + ", name=" + name + ", date=" + date
-				+ ", phone=" + phone + "]";
-	}
 	public String getPhone() {
 		return phone;
 	}
@@ -52,5 +56,10 @@ public class MemberDTO {
 		this.phone = phone;
 	}
 	
+	@Override
+	public String toString() {
+		return "MemberDTO [id=" + id + ", pwd=" + pwd + ", email=" + email + ", name=" + name + ", date=" + date
+				+ ", phone=" + phone + ", autologin=" + autologin + "]";
+	}
 
 }

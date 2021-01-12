@@ -9,7 +9,7 @@
     	http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
-        https://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
         http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx.xsd
         http://mybatis.org/schema/mybatis-spring
@@ -64,6 +64,13 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/pf/board/**"/>
 			<bean class="portfolio.interceptor.Interceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/pf/main"/>
+			<bean class="portfolio.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 	

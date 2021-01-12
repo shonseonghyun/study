@@ -12,4 +12,14 @@
 		<insert id="sign">
 			insert into pfmember(name,id,pwd,email) values(#{name},#{id},#{pwd},#{email})
 		</insert>
+		
+		<update id="keepLogin">
+			UPDATE PFMEMBER SET SESSIONKEY=#{sessionKey} ,SESSIONLIMIT=#{next} WHERE ID=#{id}
+		</update>
+		
+		<select id="checkUserwithSessionkey" resultType="portfolio.dto.member.MemberDTO">
+			select * from pfmember where sessionkey=#{sessionKey} and sessionLimit>systimestamp
+			
+		</select>
+		
 </mapper>

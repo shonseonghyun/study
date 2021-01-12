@@ -1,5 +1,7 @@
 package portfolio.service.member;
 
+import java.sql.Date;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +44,17 @@ public class PfMemberServiceImpl implements PfMemberService {
 	@Override
 	public void sign(MemberDTO member) {
 		memberdao.sign(member);
+	}
+
+
+	@Override
+	public void keepLogin(String id, String sessionKey, Date next) {
+		memberdao.keepLogin(id, sessionKey, next);
+	}
+
+
+	@Override
+	public MemberDTO checkUserwithSessionkey(String sessionKey) {
+		return memberdao.checkUserwithSessionkey(sessionKey);
 	}
 }
