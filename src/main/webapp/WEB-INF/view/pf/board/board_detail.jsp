@@ -17,6 +17,11 @@
 			location.href="/pf/board/delete?id=${detail.id}";
 		}
 		})
+	$(document).on('click','#modiftBtn',function(e){
+		if(confirm("수정하시겠습니까?")){
+			location.href="/pf/board/modify?id=${detail.id}";
+		}
+		})
 </script>
 </head>
 <body>

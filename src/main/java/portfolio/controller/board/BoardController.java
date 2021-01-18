@@ -7,13 +7,18 @@ import java.util.UUID;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -55,7 +60,7 @@ public class BoardController {
 	private String uploadpath="C:\\Users\\comon\\Documents\\workspace-spring-tool-suite-4-4.8.1.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\study\\WEB-INF\\resources\\images\\pf";
 	
 	@RequestMapping(value= "/write",method = RequestMethod.POST)
-	public String pfboardwritep(@ModelAttribute BoardDTO dto,HttpSession session,RedirectAttributes rttr,@RequestParam MultipartFile file) throws Exception {
+	public String pfboardwritep(@ModelAttribute BoardDTO dto,HttpSession session,@RequestParam MultipartFile file) throws Exception {
 		//file의 고유이름 가져오기
 		String savedfilename=file.getOriginalFilename();
 		//uploadFile을 구현하기
@@ -93,9 +98,34 @@ public class BoardController {
 	//게시판 글 삭제
 	@RequestMapping("/delete")
 	public String deleteboard(@RequestParam int id) {
-		System.out.println(id);
 		service.deleteboard(id);
 		return "redirect:/pf/board";
+	}
+	
+	//게시판 글 수정
+	@RequestMapping(value="/modify",method = RequestMethod.GET)
+	public ModelAndView getModifyform(@RequestParam int id,ModelAndView mav) {
+		mav.addObject("detail", service.getboard(id));
+		mav.setViewName("pf/board/modify");
+		return mav;
+	}
+	
+	//게시판 글 수정
+	@RequestMapping(value="/modify",method = RequestMethod.POST)
+	public ResponseEntity postModify(@RequestBody BoardDTO board){
+		ResponseEntity res=null;
+		HttpHeaders h=new HttpHeaders();
+		h.add("Content-Type", "text/html; charset=utf-8");
+		try {
+			service.modifyboard(board);
+			String message="t";
+			res=new ResponseEntity(message,h,HttpStatus.CREATED);
+
+		}catch (Exception e) {
+			String message="f";
+			res=new ResponseEntity(message,h,HttpStatus.BAD_REQUEST);
+		}
+		return res;
 	}
 	
 }

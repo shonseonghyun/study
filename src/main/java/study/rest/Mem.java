@@ -1,10 +1,11 @@
-package com.example.spring1.rest;
+package study.rest;
 
-public class MemberVO {
+public class Mem {
+
 	private String id;
 	private String name;
-	private String pwd;
 	private String email;
+	private int age;
 	public String getId() {
 		return id;
 	}
@@ -17,22 +18,22 @@ public class MemberVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPwd() {
-		return pwd;
-	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	@Override
-	public String toString() {
-		return "MemberVO [id=" + id + ", name=" + name + ", pwd=" + pwd + ", email=" + email + "]";
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Mem [id=" + id + ", name=" + name + ", email=" + email + ", age=" + age + "]";
+	}
 }
+

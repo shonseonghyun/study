@@ -23,4 +23,7 @@ public interface PfBoardDAO {
 	
 	//삭제
 	void deleteboard(int id);
+	
+	//수정
+	void modifyboard(BoardDTO board);
 }

@@ -11,4 +11,7 @@ public interface PfBoardService {
 	int countboard(String f,String q);
 	//삭제
 	void deleteboard(int id);
+	
+	//수정
+	void modifyboard(BoardDTO board);
 }

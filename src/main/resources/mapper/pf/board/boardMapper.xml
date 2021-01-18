@@ -29,4 +29,8 @@
 		DELETE PFNOTICE WHERE ID=${id}
 	</delete>
 	
+	<update id="modifyboard">
+		UPDATE  PFNOTICE SET TITLE=#{title}, CONTENT=#{content} WHERE ID=#{id}
+	</update>
+	
 </mapper>

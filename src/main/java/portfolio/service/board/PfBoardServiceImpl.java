@@ -41,5 +41,10 @@ public class PfBoardServiceImpl  implements PfBoardService{
 	public void deleteboard(int id) {
 		pfboarddao.deleteboard(id);
 	}
+
+	@Override
+	public void modifyboard(BoardDTO board) {
+		pfboarddao.modifyboard(board);
+	}
 	
 }

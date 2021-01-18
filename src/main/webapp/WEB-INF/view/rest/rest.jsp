@@ -13,7 +13,7 @@
 					id: "park",
 					name:"박지성",
 					email: "asd@naver.com",
-					pwd: "1234"			
+					age:11			
 				};
 			console.log("hello");
 			$.ajax({
@@ -21,7 +21,7 @@
 				url:"/test/info",
 				contentType:"application/json",	
 				data:JSON.stringify(member),
-				success:function(result){$("#output").html=result}
+				success:function(data,testStatus){}
 			});
 		});
 	});

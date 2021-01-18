@@ -20,6 +20,7 @@
 	<context:component-scan base-package="model.shop.service" />
 	<context:component-scan base-package="model.shop.dao" />
 	<context:component-scan base-package="sql" />
+	<context:component-scan base-package="study" />
 	<context:component-scan base-package="portfolio" />
 	
 	   

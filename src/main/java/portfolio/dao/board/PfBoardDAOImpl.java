@@ -54,4 +54,10 @@ public class PfBoardDAOImpl implements PfBoardDAO {
 		
 	}
 
+	@Override
+	public void modifyboard(BoardDTO board) {
+		sqlSession.update("pfboard.modifyboard",board);
+		
+	}
+
 }
